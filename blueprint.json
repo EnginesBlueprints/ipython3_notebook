@@ -21,7 +21,7 @@
         "title": "ipython 3 notebook"
       }
     },
-    "timestamp": "2018-12-05T14:48:07+11:00"
+    "timestamp": "2018-12-05T14:52:47+11:00"
   },
   "software": {
     "base": {
@@ -101,6 +101,22 @@
         "script": {
           "language": "sh",
           "content": "#!/bin/sh\r\ncat /home/app/.local/share/jupyter/runtime/notebook_cookie_secret"
+        }
+      },
+      {
+        "name": "install_module",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "module",
+            "input": {
+              "type": "string"
+            }
+          }
+        ],
+        "script": {
+          "language": "sh",
+          "content": "#!/bin/sh\r\n/home/app/.local/bin/pip3 install $module --user\r\n"
         }
       }
     ]
