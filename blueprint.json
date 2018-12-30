@@ -21,7 +21,7 @@
         "title": "ipython 3 notebook"
       }
     },
-    "timestamp": "2018-12-23T13:25:35+11:00"
+    "timestamp": "2018-12-30T14:28:15+11:00"
   },
   "software": {
     "base": {
@@ -120,6 +120,23 @@
         "script": {
           "language": "sh",
           "content": "#!/bin/sh\r\n/home/app/.local/bin/pip3 install $module --user\r\n"
+        }
+      },
+      {
+        "name": "set_password",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "notebook_password",
+            "mandatory": true,
+            "input": {
+              "type": "password_with_confirmation",
+              "label": "Notebook password"
+            }
+          }
+        ],
+        "script": {
+          "content": "#!/bin/sh\r\n\r\n  pass=`echo \"from IPython.lib import passwd\r\n  passwd('$notebook_password')\r\n  exit() \" | ipython3  --no-confirm-exit --no-color-info --no-pprint --colors=NoColor |grep sha1 | sed \"/.*sha/s//\\'sha/\"`\r\n  cat ~/.ipython/profile_nbserver/ipython_notebook_config.py | sed \"/^# c.NotebookApp.password.*/s//c.NotebookApp.password=$pass/\" > /tmp/confg\r\n  cp /tmp/confg ~/.ipython/profile_nbserver/ipython_notebook_config.py\r\n  echo $pass"
         }
       }
     ]
