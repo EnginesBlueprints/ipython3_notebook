@@ -21,11 +21,12 @@
         "title": "ipython 3 notebook"
       }
     },
-    "timestamp": "2018-12-30T14:28:15+11:00"
+    "timestamp": "2019-02-01T16:09:46+11:00"
   },
   "software": {
     "base": {
       "name": "ipython3notebook",
+      "inherit": "https://raw.githubusercontent.com/EnginesBlueprints/ipython_notebook/master/blueprint.json",
       "framework": "python",
       "deployment_type": "web",
       "http_protocol": "https_only",
