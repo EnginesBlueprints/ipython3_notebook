@@ -21,7 +21,7 @@
         "title": "ipython 3 notebook"
       }
     },
-    "timestamp": "2019-02-17T18:56:25+11:00"
+    "timestamp": "2019-02-17T19:07:35+11:00"
   },
   "software": {
     "base": {
@@ -93,7 +93,7 @@
         ],
         "script": {
           "language": "sh",
-          "content": "#!/bin/sh\r\n/home/app/.local/bin/pip3.7 install $module --user\r\n"
+          "content": "#!/bin/sh\r\n/home/app/.local/bin/pip3.7 install --update $module --user\r\n"
         }
       },
       {
